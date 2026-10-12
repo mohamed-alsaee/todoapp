@@ -45,7 +45,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
                                   ? null
                                   : subTitleController.text,
 
-                              createdAt: DateTime.now(),
+                              createdAt: DateTime.now().toIso8601String(),
                             ),
                           );
                           Navigator.pop(context);

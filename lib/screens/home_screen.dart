@@ -14,6 +14,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int tabIndex = 0;
+
+  @override
+  void initState() {
+    Provider.of<TasksProvider>(context, listen: false).getFromLocalStorage();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<TasksProvider>(
@@ -69,50 +76,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               : SizedBox();
                         },
                       ),
-                      // TabBarView(
-                      //   children: [
-                      //     ListView.builder(
-                      //       itemCount: tasksConsumer.tasks.length,
-                      //       shrinkWrap: true,
-                      //       itemBuilder: (context, index) {
-                      //         return !tasksConsumer.tasks[index].isDone
-                      //             ? TaskCard(
-                      //                 taskModel: tasksConsumer.tasks[index],
-                      //                 onSwitch: () {
-                      //                   // setState(() {
-                      //                   //   tasks[index].isDone =
-                      //                   //       !tasks[index].isDone;
-                      //                   // });
-                      //                   tasksConsumer.switchIsDone(
-                      //                     tasksConsumer.tasks[index],
-                      //                   );
-                      //                 },
-                      //               )
-                      //             : SizedBox();
-                      //       },
-                      //     ),
-                      //     ListView.builder(
-                      //       itemCount: tasksConsumer.tasks.length,
-                      //       shrinkWrap: true,
-                      //       itemBuilder: (context, index) {
-                      //         return tasksConsumer.tasks[index].isDone
-                      //             ? TaskCard(
-                      //                 taskModel: tasksConsumer.tasks[index],
-                      //                 onSwitch: () {
-                      //                   // setState(() {
-                      //                   //   tasks[index].isDone =
-                      //                   //       !tasks[index].isDone;
-                      //                   // });
-                      //                   tasksConsumer.switchIsDone(
-                      //                     tasksConsumer.tasks[index],
-                      //                   );
-                      //                 },
-                      //               )
-                      //             : SizedBox();
-                      //       },
-                      //     ),
-                      //   ],
-                      // ),
                     ),
                   ],
                 ),

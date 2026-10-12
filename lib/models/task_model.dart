@@ -12,7 +12,7 @@ class TaskModel {
   final String title;
   final String? subtitle;
   bool isDone;
-  final DateTime createdAt;
+  final String createdAt;
 
   TaskModel({
     required this.title,
